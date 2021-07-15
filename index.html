@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
@@ -32,84 +33,99 @@
 
 <body>
 
+  <h1>SPLITTER</h1>
+
   <div class="container-md calculator-body">
-  <div class="row row-cols-1 row-cols-lg-2">
+    <div class="row row-cols-1 row-cols-lg-2">
 
-    <div class="col">
-      <div class="container-sm bill">
-        <label for="bill-amount">Bill</label><br>
-        <span class="bill-input">$<input type="number" id="bill-amount" name="bill-amount" min="0" placeholder="0"></span>
+      <div class="col">
+        <div class="container-sm bill">
+          <label for="bill-amount">Bill</label><br>
+          <span class="bill-input">$<input type="number" id="bill-amount" name="bill-amount" min="0" placeholder="0"></span>
+        </div>
+
+        <div class="container-sm tip-percantage">
+          <label for="tip-%">Select Tip %</label><br>
+
+          <div class="row row-cols-2 row-cols-lg-3">
+            <div class="col">
+              <input class="tip-input" type="button" name="tip-%" value="5%">
+            </div>
+            <div class="col">
+              <input class="tip-input" type="button" name="tip-%" value="10%">
+            </div>
+            <div class="col">
+              <input class="tip-input" type="button" name="tip-%" value="15%">
+            </div>
+            <div class="col">
+              <input class="tip-input" type="button" name="tip-%" value="25%">
+            </div>
+            <div class="col">
+              <input class="tip-input" type="button" name="tip-%" value="50%">
+            </div>
+            <div class="col">
+              <input class="tip-input custom" type="number" name="tip-%" min="0" placeholder="Custom">
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="container-sm no-of-people">
+          <div class="row">
+            <div class="col-7">
+              <label for="no-of-people">Number of People</label>
+            </div>
+            <div class="col-5">
+              <p class="error-text"></p><br>
+            </div>
+          </div>
+
+
+          <span class="people-input"><i class="fas fa-user"></i>
+            <input type="number" id="no-of-people" name="no-of-people" min="0" placeholder="0"></span>
+        </div>
       </div>
 
-      <div class="container-sm tip-percantage">
-        <label for="tip-%">Select Tip %</label><br>
+      <div class="col">
 
-        <div class="row row-cols-2 row-cols-lg-3">
-          <div class="col">
-            <input class="tip-input" type="button" name="tip-%" value="5%">
+        <div class="container-sm tip-result">
+          <div class="row">
+            <div class="col-6 tip-amount-text">
+              <p>Tip Amount</p>
+              <span class="per-person">/ person</span>
+            </div>
+            <div class="col-6 output">
+              <span class="tip-output">$<output class="result-per-head" name="result-per-head">0.00</output></span>
+            </div>
           </div>
-          <div class="col">
-            <input class="tip-input" type="button" name="tip-%" value="10%">
+          <br>
+          <div class="row">
+            <div class="col-6 tip-amount-text">
+              <p>Total</p>
+              <span class="per-person">/ person</span>
+            </div>
+            <div class="col-6 output">
+              <span class="tip-output">$<output class="result-total" name="result-total">0.00</output></span>
+            </div>
           </div>
-          <div class="col">
-            <input class="tip-input" type="button" name="tip-%" value="15%">
+          <br>
+          <br>
+          <div class="d-grid col-10 mx-auto">
+            <button class="btn reset-button" type="button" name="button">RESET</button>
           </div>
-          <div class="col">
-            <input class="tip-input" type="button" name="tip-%" value="25%">
-          </div>
-          <div class="col">
-            <input class="tip-input" type="button" name="tip-%" value="50%">
-          </div>
-          <div class="col">
-            <input class="tip-input custom" type="number" name="tip-%" min="0" placeholder="Custom">
-          </div>
-
         </div>
-
-      </div>
-
-      <div class="container-sm no-of-people">
-        <label for="no-of-people">Number of People</label>
-        <p></p><br>
-        <span class="people-input"><i class="fas fa-user"></i>
-          <input type="number" id="no-of-people" name="no-of-people" min="0" placeholder="0"></span>
-      </div>
-    </div>
-
-    <div class="col">
-
-      <div class="container-sm tip-result">
-        <div class="tip-amount-text">
-          Tip Amount <br>
-          <span class="per-person">/ person</span>
-        </div>
-        <div class="output">
-          <span class="tip-output">$<output name="result-per-head">0.00</output></span>
-        </div>
-        <br>
-        <div class="tip-amount-text">
-          Total <br>
-          <span class="per-person">/ person</span>
-        </div>
-        <div class="output">
-          <span class="tip-output">$<output name="result-total">0.00</output></span>
-        </div>
-        <br>
-        <br>
-
-        <button type="button" name="button">Reset</button>
-
       </div>
     </div>
   </div>
-</div>
 
 
 
   <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io/challenges/tip-calculator-app-ugJNGbJUX" target="_blank">Frontend Mentor</a>.
+    Challenge by <a href="https://www.frontendmentor.io/challenges/tip-calculator-app-ugJNGbJUX" target="_blank">Frontend Mentor</a>. &nbsp;
     Coded by <a href="https://github.com/basuabhirup/tip-calculator" target="_blank">Abhirup Basu</a>.
   </div>
   <script src="index.js" charset="utf-8"></script>
 </body>
+
 </html>
