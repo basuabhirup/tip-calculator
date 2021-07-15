@@ -21,7 +21,7 @@
 
 
   <!-- Adding Font Awesome Script from CDN -->
-  <!-- <script src="https://kit.fontawesome.com/c9b43d3d94.js" crossorigin="anonymous"></script> -->
+  <script src="https://kit.fontawesome.com/c9b43d3d94.js" crossorigin="anonymous"></script>
 
 
   <!-- Adding required fonts from Google Fonts -->
@@ -41,29 +41,64 @@
         <span class="bill-input">$<input type="number" id="bill-amount" name="bill-amount" min="0" placeholder="0"></span>
       </div>
 
-      <div class="container-sm tip-%">
+      <div class="container-sm tip-percantage">
         <label for="tip-%">Select Tip %</label><br>
-        <input type="button" name="tip-%" value="5%">
-        <input type="button" name="tip-%" value="10%">
-        <input type="button" name="tip-%" value="15%">
-        <input type="button" name="tip-%" value="25%">
-        <input type="button" name="tip-%" value="50%">
-        <input type="number" name="tip-%" min="0" placeholder="Custom">
+
+        <div class="row row-cols-2 row-cols-lg-3">
+          <div class="col">
+            <input class="tip-input" type="button" name="tip-%" value="5%">
+          </div>
+          <div class="col">
+            <input class="tip-input" type="button" name="tip-%" value="10%">
+          </div>
+          <div class="col">
+            <input class="tip-input" type="button" name="tip-%" value="15%">
+          </div>
+          <div class="col">
+            <input class="tip-input" type="button" name="tip-%" value="25%">
+          </div>
+          <div class="col">
+            <input class="tip-input" type="button" name="tip-%" value="50%">
+          </div>
+          <div class="col">
+            <input class="tip-input custom" type="number" name="tip-%" min="0" placeholder="Custom">
+          </div>
+
+        </div>
+
       </div>
 
       <div class="container-sm no-of-people">
-        Number of People
+        <label for="no-of-people">Number of People</label>
+        <p></p><br>
+        <span class="people-input"><i class="fas fa-user"></i>
+          <input type="number" id="no-of-people" name="no-of-people" min="0" placeholder="0"></span>
       </div>
     </div>
+
     <div class="col">
+
       <div class="container-sm tip-result">
-        Tip Amount
-        / person
+        <div class="tip-amount-text">
+          Tip Amount <br>
+          <span class="per-person">/ person</span>
+        </div>
+        <div class="output">
+          <span class="tip-output">$<output name="result-per-head">0.00</output></span>
+        </div>
+        <br>
+        <div class="tip-amount-text">
+          Total <br>
+          <span class="per-person">/ person</span>
+        </div>
+        <div class="output">
+          <span class="tip-output">$<output name="result-total">0.00</output></span>
+        </div>
+        <br>
+        <br>
 
-        Total
-        / person
+        <button type="button" name="button">Reset</button>
 
-        Reset
       </div>
     </div>
   </div>
