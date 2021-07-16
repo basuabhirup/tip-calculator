@@ -206,8 +206,8 @@ input:focus {
 .attribution {
   background-color: hsl(183, 100%, 15%);
   color: hsl(185, 41%, 70%);
-  margin: 10% auto 0;
-  padding: 1%;
+  margin: 12.5% auto 0;
+  padding: 0.5%;
   font-size: 0.8rem;
   font-family: sans-serif;
   text-align: center;
