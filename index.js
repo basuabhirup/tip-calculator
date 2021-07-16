@@ -1,11 +1,32 @@
-$(".tip-input").click(function() { // when any of the Tip-% buttons are clicked
-  var tipPercantage = parseFloat(this.value, 10) / 100; // saves the selected Tip-% button's value
-  calculateTip(tipPercantage); // calls the custom function, which is defined later
+var tipPercantage;
+// When any of the Tip-% buttons are clicked:
+$(".tip-input").click(function() { // adds a handler function against the "click" event
+  tipPercantage = parseInt(this.value, 10) / 100; // saves the Tip-% value of the clicked button
+  calculateTip(tipPercantage); // calls a custom function, which is defined later
 })
 
-$(".tip-input.custom").keyup(function(event) { // when any number is typed in the custom Tip-% field
-  var tipPercantage = parseFloat(this.value, 10) / 100; // saves the typed custom Tip-% value
-  calculateTip(tipPercantage); // calls the function
+// When any number is typed in the custom Tip-% field
+$(".tip-input.custom").keyup(function() { // adds a handler function against "keyup" event
+  tipPercantage = parseInt(this.value, 10) / 100; // saves the typed custom Tip-% value
+  calculateTip(tipPercantage); // calls the custom function
+})
+
+// When any number is typed in the Number-of-people field
+$("#no-of-people").keyup(function() { // adds a handler function against "keyup" event
+  calculateTip(tipPercantage); // calls the custom function
+})
+
+// Setting the Reset Button's functionalities:
+$(".reset-button").click(function(){
+  if (!$(".reset-button").hasClass("disabled")) { // when the reset button is enabled
+    console.log("Reset button clicked !");
+    $("#bill-amount").val("");
+    $("#no-of-people").val("");
+    $(".reset-button").addClass("disabled");
+    $("#tip-per-head").text("0.00");
+    $("#tip-total").text("0.00");
+  }
+
 })
 
 
@@ -18,15 +39,18 @@ function calculateTip(tipPercantage) {
 
   if (numPeople > 0 && Number.isInteger(numPeople)) { // checks whether no-of-people is an integer
 
-    $("#tip-per-head").text(parseFloat(tipPerHead.toFixed(2)));
-    $("#tip-total").text(parseFloat(tipTotal.toFixed(2)));
+    if (tipPercantage > 0) {
+      $("#tip-per-head").text(parseFloat(tipPerHead.toFixed(2)));
+      $("#tip-total").text(parseFloat(tipTotal.toFixed(2)));
+      $(".reset-button").removeClass("disabled");
+    }
 
     $(".error-text").text(""); // revokes error message, if already present
     if ($(".people-input").hasClass("error")) { // revokes red error border style, if already present
       $(".people-input").removeClass("error");
     }
 
-  } else if (numPeople > 0 && !(Number.isInteger(numPeople))) { // when no-of-people is not an integer
+  } else if (numPeople > 0 && !Number.isInteger(numPeople)) { // when no-of-people is not an integer
     $(".people-input").addClass("error"); // adds error class to place red border of the input field
     $(".error-text").text("Must be an integer!"); // shows error message
   } else { // when no-of-people is zero
@@ -34,11 +58,3 @@ function calculateTip(tipPercantage) {
     $(".error-text").text("Can't be zero!"); // shows error message
   }
 }
-
-
-// if (this.type === "number") { // when the custom Tip-% field is selected
-//   $(".tip-input.custom").keyup(function(){ // triggers after typing custom Tip-%
-//     var tipPercantage = parseFloat(this.value, 10) / 100; // saves the typed Tip-% value
-//     calculateTip(tipPercantage, numPeople); // calls this function, which is defined later
-//   })
-// }
