@@ -16,14 +16,17 @@ $("#no-of-people").keyup(function() { // adds a handler function against "keyup"
   calculateTip(tipPercantage); // calls the custom function
 })
 
+// When the No-of-people field is clicked
 $("#no-of-people").click(function() { // adds a handler function against "keyup" event
   calculateTip(tipPercantage); // calls the custom function
 })
 
+// When any number is typed in the Bill-Amount field
 $("#bill-amount").keyup(function() { // adds a handler function against "keyup" event
   calculateTip(tipPercantage); // calls the custom function
 })
 
+// When the Bill-Amount field is clicked
 $("#bill-amount").click(function() { // adds a handler function against "keyup" event
   calculateTip(tipPercantage); // calls the custom function
 })
