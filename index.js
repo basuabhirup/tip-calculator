@@ -1,4 +1,4 @@
-var tipPercantage;
+var tipPercantage = 0;
 // When any of the Tip-% buttons are clicked:
 $(".tip-input").click(function() { // adds a handler function against the "click" event
   tipPercantage = parseInt(this.value, 10) / 100; // saves the Tip-% value of the clicked button
