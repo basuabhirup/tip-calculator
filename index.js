@@ -57,7 +57,7 @@ function calculateTip(tipPercantage) {
 
   if (numPeople > 0 && Number.isInteger(numPeople)) { // checks whether no-of-people is an integer
 
-    if (tipPercantage > 0) {
+    if (tipPercantage >= 0) {
       $("#tip-per-head").text(parseFloat(tipPerHead.toFixed(2)));
       $("#tip-total").text(parseFloat(totalPerHead.toFixed(2)));
       $(".reset-button").removeClass("disabled");
