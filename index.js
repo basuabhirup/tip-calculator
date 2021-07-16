@@ -11,16 +11,6 @@ $(".tip-input.custom").keyup(function() { // adds a handler function against "ke
   calculateTip(tipPercantage); // calls the custom function
 })
 
-// When any number is typed in the Number-of-people field
-$("#no-of-people").keyup(function() { // adds a handler function against "keyup" event
-  calculateTip(tipPercantage); // calls the custom function
-})
-
-// When the No-of-people field is clicked
-$("#no-of-people").click(function() { // adds a handler function against "keyup" event
-  calculateTip(tipPercantage); // calls the custom function
-})
-
 // When any number is typed in the Bill-Amount field
 $("#bill-amount").keyup(function() { // adds a handler function against "keyup" event
   calculateTip(tipPercantage); // calls the custom function
@@ -30,6 +20,17 @@ $("#bill-amount").keyup(function() { // adds a handler function against "keyup" 
 $("#bill-amount").click(function() { // adds a handler function against "keyup" event
   calculateTip(tipPercantage); // calls the custom function
 })
+
+// When any number is typed in the Number-of-people field
+$("#no-of-people").keyup(function() { // adds a handler function against "keyup" event
+  calculateTip(tipPercantage); // calls the custom function
+})
+
+// When the Number-of-people field is clicked
+$("#no-of-people").click(function() { // adds a handler function against "keyup" event
+  calculateTip(tipPercantage); // calls the custom function
+})
+
 
 // Setting the Reset Button's functionalities:
 $(".reset-button").click(function(){
