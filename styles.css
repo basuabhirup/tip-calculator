@@ -60,12 +60,25 @@ input:focus {
   border: 2px solid hsl(172, 67%, 45%);
 }
 
+
+.error {
+  border: 2px solid #f05;
+}
+
+.error:hover {
+  border: 2px solid #f05;
+}
+
+.error:focus {
+  border: 2px solid #f05;
+}
+
 .bill-input input {
   font-weight: 700;
   color: hsl(183, 100%, 15%);
   border: 0;
   background-color: inherit;
-  width: 85%;
+  width: 91%;
   padding: 0;
   margin: 0.5% 1.75% 0.5% 2.5%;
 }
@@ -141,17 +154,13 @@ input:focus {
   border-radius: 10px;
 }
 
-.error {
-  border: 2px solid #f05;
-}
-
 .people-input:hover {
   border: 2px solid hsl(172, 67%, 45%);
   cursor: pointer;
 }
 
 .people-input:focus {
-  border: 2px solid hsl(172, 67%, 45%);  
+  border: 2px solid hsl(172, 67%, 45%);
 }
 
 .people-input input {
@@ -160,7 +169,7 @@ input:focus {
   background-color: inherit;
   font-size: 1.5rem;
   font-weight: 700;
-  width: 85%;
+  width: 91%;
   padding: 0;
   border: 0;
   margin: 0.5%;

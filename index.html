@@ -33,16 +33,25 @@
 
 <body>
 
+  <!--- Webpage Heading -->
+
   <h1>SPLITTER</h1>
+
+  <!-- Calculator Body -->
 
   <div class="container-md calculator-body">
     <div class="row row-cols-1 row-cols-lg-2">
 
       <div class="col">
+
+        <!-- -Biii Input Section -->
+
         <div class="container-sm bill">
           <label for="bill-amount">Bill</label><br>
           <span class="bill-input">$<input type="number" id="bill-amount" name="bill-amount" min="0" placeholder="0"></span>
         </div>
+
+        <!-- Tip Percantage Input Section -->
 
         <div class="container-sm tip-percantage">
           <label for="tip-%">Select Tip %</label><br>
@@ -66,10 +75,10 @@
             <div class="col">
               <input class="tip-input custom" type="number" name="tip-%" min="0" placeholder="Custom">
             </div>
-
           </div>
-
         </div>
+
+        <!-- Number-of-people Input Section -->
 
         <div class="container-sm no-of-people">
           <div class="row">
@@ -81,13 +90,15 @@
             </div>
           </div>
 
-
           <span class="people-input"><i class="fas fa-user"></i>
-            <input type="number" id="no-of-people" name="no-of-people" min="0" placeholder="0"></span>
+            <input type="number" id="no-of-people" name="no-of-people" min="0" placeholder="0">
+          </span>
         </div>
       </div>
 
       <div class="col">
+
+        <!-- Tip Amount Output Section -->
 
         <div class="container-sm tip-result">
           <div class="row">
@@ -111,6 +122,7 @@
           </div>
           <br>
           <br>
+          <!-- Reset Button -->
           <div class="d-grid col-10 mx-auto">
             <button class="btn reset-button disabled" type="button" name="button">RESET</button>
           </div>

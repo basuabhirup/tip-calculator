@@ -35,14 +35,13 @@ $("#no-of-people").click(function() { // adds a handler function against "keyup"
 // Setting the Reset Button's functionalities:
 $(".reset-button").click(function(){
   if (!$(".reset-button").hasClass("disabled")) { // when the reset button is enabled
-    console.log("Reset button clicked !");
     $("#bill-amount").val("");
+    $(".tip-input.custom").val("");
     $("#no-of-people").val("");
-    $(".reset-button").addClass("disabled");
     $("#tip-per-head").text("0.00");
     $("#tip-total").text("0.00");
+    $(".reset-button").addClass("disabled");
   }
-
 })
 
 
@@ -55,24 +54,37 @@ function calculateTip(tipPercantage) {
   var tipPerHead = tipTotal / numPeople;
   var totalPerHead = billPerHead + tipPerHead;
 
-  if (numPeople > 0 && Number.isInteger(numPeople)) { // checks whether no-of-people is an integer
 
-    if (tipPercantage >= 0) {
-      $("#tip-per-head").text(parseFloat(tipPerHead.toFixed(2)));
-      $("#tip-total").text(parseFloat(totalPerHead.toFixed(2)));
-      $(".reset-button").removeClass("disabled");
+  if (billAmount > 0) { // validates the Bill-Input value
+    if ($(".bill-input").hasClass("error")) { // revokes red error border style, if already present
+      $(".bill-input").removeClass("error");
+    }
+    if (numPeople > 0 && Number.isInteger(numPeople)) { // checks whether num-of-people is an integer
+      $(".error-text").text(""); // revokes error message, if already present
+      if ($(".people-input").hasClass("error")) { // revokes red error border style, if already present
+        $(".people-input").removeClass("error");
+      }
+      if (!isNaN(tipPercantage)) { // checks whether the Tip-Percantage is a number or not
+        $("#tip-per-head").text(parseFloat(tipPerHead.toFixed(2)));
+        $("#tip-total").text(parseFloat(totalPerHead.toFixed(2)));
+        $(".reset-button").removeClass("disabled");
+      }
+    } else if (numPeople > 0 && !Number.isInteger(numPeople)) { // when no-of-people is not an integer
+      $(".people-input").addClass("error"); // adds error class to place red border of the input field
+      $(".error-text").text("Must be an integer!"); // shows error message
+    } else if (numPeople < 0) { // when no-of-people is negative
+      $(".people-input").addClass("error"); // adds error class to place red border of the input field
+      $(".error-text").text("Can't be negative!"); // shows error message
+    } else { // when no-of-people is zero
+      $(".people-input").addClass("error"); // adds error class to place red border of the input field
+      $(".error-text").text("Can't be zero!"); // shows error message
     }
 
-    $(".error-text").text(""); // revokes error message, if already present
-    if ($(".people-input").hasClass("error")) { // revokes red error border style, if already present
-      $(".people-input").removeClass("error");
-    }
-
-  } else if (numPeople > 0 && !Number.isInteger(numPeople)) { // when no-of-people is not an integer
-    $(".people-input").addClass("error"); // adds error class to place red border of the input field
-    $(".error-text").text("Must be an integer!"); // shows error message
-  } else { // when no-of-people is zero
-    $(".people-input").addClass("error"); // adds error class to place red border of the input field
-    $(".error-text").text("Can't be zero!"); // shows error message
+  } else if (billAmount < 0) {
+    $(".bill-input").addClass("error");
+    $("#tip-per-head").text("0.00");
+    $("#tip-total").text("0.00");
   }
+
+
 }
