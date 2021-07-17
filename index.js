@@ -1,4 +1,15 @@
-var tipPercantage = 0;
+var tipPercantage = 0;  // declares a variable to hold the tip-% value
+
+// When any number is typed in the Bill-Amount field
+$("#bill-amount").keyup(function() { // adds a handler function against "keyup" event
+  calculateTip(tipPercantage); // calls the custom function
+})
+
+// When the Bill-Amount field is clicked
+$("#bill-amount").click(function() { // adds a handler function against "keyup" event
+  calculateTip(tipPercantage); // calls the custom function
+})
+
 // When any of the Tip-% buttons are clicked:
 $(".tip-input").click(function() { // adds a handler function against the "click" event
   tipPercantage = parseInt(this.value, 10) / 100; // saves the Tip-% value of the clicked button
@@ -11,15 +22,12 @@ $(".tip-input.custom").keyup(function() { // adds a handler function against "ke
   calculateTip(tipPercantage); // calls the custom function
 })
 
-// When any number is typed in the Bill-Amount field
-$("#bill-amount").keyup(function() { // adds a handler function against "keyup" event
+// When the custom Tip-% field is clicked
+$(".tip-input.custom").click(function() { // adds a handler function against "keyup" event
+  tipPercantage = parseFloat(this.value, 10) / 100; // saves the typed custom Tip-% value
   calculateTip(tipPercantage); // calls the custom function
 })
 
-// When the Bill-Amount field is clicked
-$("#bill-amount").click(function() { // adds a handler function against "keyup" event
-  calculateTip(tipPercantage); // calls the custom function
-})
 
 // When any number is typed in the Number-of-people field
 $("#no-of-people").keyup(function() { // adds a handler function against "keyup" event
