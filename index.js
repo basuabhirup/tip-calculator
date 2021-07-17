@@ -1,55 +1,31 @@
 var tipPercantage = 0;  // declares a variable to hold the tip-% value
 
-// When any number is typed in the Bill-Amount field
-$("#bill-amount").keyup(function() { // adds a handler function against "keyup" event
-  calculateTip(tipPercantage); // calls the custom function
+// When any number is typed in the Bill-Amount or the Number-of-people field:
+$("#bill-amount, #no-of-people").keyup(function() { // adds a handler function against "keyup" event
+  calculateTip(tipPercantage); // calls a custom function, which is defined later
 })
 
-// When the Bill-Amount field is clicked
-$("#bill-amount").click(function() { // adds a handler function against "keyup" event
+// When the Bill-Amount or the Number-of-people field is clicked:
+$("#bill-amount, #no-of-people").click(function() { // adds a handler function against the "click" event
   calculateTip(tipPercantage); // calls the custom function
 })
 
 // When any of the Tip-% buttons are clicked:
-$(".tip-input").click(function() { // adds a handler function against the "click" event
+$(".tip-input").click(function() {
   tipPercantage = parseInt(this.value, 10) / 100; // saves the Tip-% value of the clicked button
-  calculateTip(tipPercantage); // calls a custom function, which is defined later
+  calculateTip(tipPercantage); // calls the custom function
 })
 
-// When any number is typed in the custom Tip-% field
-$(".tip-input.custom").keyup(function() { // adds a handler function against "keyup" event
+// When any number is typed in the custom Tip-% field:
+$(".tip-input.custom").keyup(function() {
   tipPercantage = parseFloat(this.value, 10) / 100; // saves the typed custom Tip-% value
   calculateTip(tipPercantage); // calls the custom function
 })
 
-// When the custom Tip-% field is clicked
-$(".tip-input.custom").click(function() { // adds a handler function against "keyup" event
+// When the custom Tip-% field is clicked:
+$(".tip-input.custom").click(function() {
   tipPercantage = parseFloat(this.value, 10) / 100; // saves the typed custom Tip-% value
   calculateTip(tipPercantage); // calls the custom function
-})
-
-
-// When any number is typed in the Number-of-people field
-$("#no-of-people").keyup(function() { // adds a handler function against "keyup" event
-  calculateTip(tipPercantage); // calls the custom function
-})
-
-// When the Number-of-people field is clicked
-$("#no-of-people").click(function() { // adds a handler function against "keyup" event
-  calculateTip(tipPercantage); // calls the custom function
-})
-
-
-// Setting the Reset Button's functionalities:
-$(".reset-button").click(function(){
-  if (!$(".reset-button").hasClass("disabled")) { // when the reset button is enabled
-    $("#bill-amount").val("");
-    $(".tip-input.custom").val("");
-    $("#no-of-people").val("");
-    $("#tip-per-head").text("0.00");
-    $("#tip-total").text("0.00");
-    $(".reset-button").addClass("disabled");
-  }
 })
 
 
@@ -94,5 +70,18 @@ function calculateTip(tipPercantage) {
     $("#tip-total").text("0.00");
   }
 
-
 }
+
+
+
+// Setting the Reset Button's functionalities:
+$(".reset-button").click(function(){
+  if (!$(".reset-button").hasClass("disabled")) { // when the reset button is enabled
+    $("#bill-amount").val("");
+    $(".tip-input.custom").val("");
+    $("#no-of-people").val("");
+    $("#tip-per-head").text("0.00");
+    $("#tip-total").text("0.00");
+    $(".reset-button").addClass("disabled");
+  }
+})
